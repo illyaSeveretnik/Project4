@@ -4,59 +4,53 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "rus");
-    cout << "Завдання №1"<< endl;
-    int M = 1, N = 1;
+    cout << "Завдання #2" << endl;
+    int m, n;
     cout << "Розмiр першого масива -> ";
-    cin >> M;
+    cin >> m;
     cout << "\nРозмiр другого масива -> ";
-    cin >> N;
-    int* A = new int[M];
-    int* B = new int[N];
+    cin >> n;
+    int* a = new int[m];
+    int* b = new int[n];
     cout << "\nПерший масив -> ";
-    for (int i = 0; i < M; i++)
+    for (int i = 0; i < m; ++i)
     {
-        A[i] = rand() % 15;
-        cout << A[i] << " ";
+        a[i] = rand() % 10;
+        cout << a[i] << " ";
     }
+    cout << endl;
     cout << "\nДругий масив -> ";
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < n; ++i)
     {
-        B[i] = rand() % 15;
-        cout << B[i] << " ";
+        b[i] = rand() % 10;
+        cout << b[i] << " ";
     }
-
-    int tmp = 0;
-    for (int x = 0; x < M; x++)
+    cout << endl;
+    int x = 0;
+    int* c = new int[x];
+    bool fl;
+    for (int i = 0; i < m; ++i)
     {
-        for (int y = 0; y < N; y++)
+        for (int j = 0; j < n; ++j)
         {
-            if (A[x] == B[y])
+            if (a[i] != b[j])
             {
-                tmp++;
+                fl = true;
+            }
+            else
+            {
+                fl = false;
             }
         }
-    }
-
-    int O = tmp;
-    int* TMP = new int[O];
-    tmp = 0;
-    for (int y = 0; y < N; y++)
-    {
-        for (int z = 0; z < M; z++)
+        if (fl == true)
         {
-            if (B[y] == A[z])
-            {
-                TMP[tmp] = B[y];
-                tmp++;
-            }
+            c[x] = a[i];
+            x++;
         }
     }
-    int* C = new int[O];
     cout << "\n\nТретiй масив -> ";
-    for (int i = 0; i < O; i++)
+    for (int i = 0; i < x; i++)
     {
-        C[i] = TMP[i];
-        cout << C[i] << " ";
+        cout << c[i] << " ";
     }
-    
 }
